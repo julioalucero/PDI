@@ -26,15 +26,6 @@ int main(int argc, char *argv[]) {
   CImgDisplay ventana(cameramm_image, "cameramm"), 
     sub_ventana(sub_image, "cameramm");
 
-  // Gray Image
-  CImg<unsigned char> gray_image(256, 256, 1, 1);
-  for (int i=0; i < 256; i++){
-    for (int j=0; j < 256; j++){
-      gray_image(i, j) = i;
-    }
-  }
-  gray_image.save("public/images/gray_image.bmp");
-
   while (!ventana.is_closed() && !ventana.is_keyQ()) {}
   return 0;
 }
