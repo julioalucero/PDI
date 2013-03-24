@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
       gray_image(i, j) = i;
     }
   }
-  gray_image.save("public/images/gray_image.bmp");
+  gray_image.save("../public/images/gray_image.bmp");
 
   gray_image.print("gray image", true);
   gray_image.stats();

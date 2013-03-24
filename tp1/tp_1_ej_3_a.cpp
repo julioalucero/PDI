@@ -7,7 +7,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-  const char* filename = cimg_option("-i", "public/images/cameraman.tif", "Image file\n");
+  const char* filename = cimg_option("-i", "../public/images/cameraman.tif", "Image file\n");
   CImg <unsigned char> img(filename), perfil(256, 256, 1, 1, 0);  
 
   // see it

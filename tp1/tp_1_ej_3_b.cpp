@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
                      green[] = {  0, 255,   0},
                      blue[]  = {  0,   0, 255};
   
-  const char* filename = cimg_option("-i", "public/images/cameraman.tif", "Image file\n");
+  const char* filename = cimg_option("-i", "../public/images/cameraman.tif", "Image file\n");
   CImg <unsigned char> img(filename), perfil(256, 256, 1, 1, 0);  
 
   // see it

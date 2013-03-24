@@ -8,7 +8,7 @@ using namespace std;
 int main(int argc, char *argv[]) {
 
   cimg_usage("Ejemplo Basico");
-  const char* filename = cimg_option("-i", "public/images/cameraman.tif", "Image file\n");
+  const char* filename = cimg_option("-i", "../public/images/cameraman.tif", "Image file\n");
   CImg<unsigned char> cameramm_image(filename);
 
   // Cut and copy on sub_image;
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
   size = 50 * 50 * 3 + 54;
   cout << "Size of the image: " << size << " bytes" << endl;
 
-  sub_image.save("public/images/sub_cameraman.bmp");
+  sub_image.save("../public/images/sub_cameraman.bmp");
   // see two images at the same time
   CImgDisplay ventana(cameramm_image, "cameramm"), 
     sub_ventana(sub_image, "cameramm");
