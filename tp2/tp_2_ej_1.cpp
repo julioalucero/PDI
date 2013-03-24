@@ -12,9 +12,9 @@ CImg<int> lut(CImg<int> r, float a, float c){
   cimg_forXY(r, x, y){
     s(x, y) = a* r(x, y) + c; 
 
-    if(r(x,y) < 0) 
+    if(s(x,y) < 0) 
       s(x,y) = 0;
-    else if (r(x,y) > 255)
+    else if (s(x,y) > 255)
       s(x,y) = 255;
   }
   
