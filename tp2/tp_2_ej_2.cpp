@@ -37,7 +37,7 @@ CImg<unsigned char> cimg_power(CImg<unsigned char> r, float c, float gamma){
 } 
 
 int main(int argc, char *argv[]) {
-  CImg<unsigned char> img("../public/images/log.png");
+  CImg<unsigned char> img("../public/images/huang2.jpg");
 
    float gamma = 1;
    CImg<unsigned char> log = cimg_log(img, 2);
