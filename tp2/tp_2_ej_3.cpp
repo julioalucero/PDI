@@ -35,6 +35,20 @@ CImg<unsigned char> cimg_mult(CImg<unsigned char> img, CImg<bool> binary_mask){
   return result;
 } 
 
+CImg<unsigned char> cimg_inverse(CImg<unsigned char> img){
+  CImg<unsigned char> result(img.width(), img.height(), img.depth(), img.spectrum());
+
+  cimg_forXYC(img, x, y, v){
+    result(x, y, 0, v) = 1 / 255 * img(x, y, 0, v);
+  }
+  return result;
+} 
+
+CImg<unsigned char> cimg_division(CImg<unsigned char> img, CImg<bool> binary_mask){
+  return cimg_mult(img, cimg_inverse(binary_mask));
+} 
+
+
 int main(int argc, char *argv[]) {
   CImg<unsigned char> cameraman("../public/images/rmn.jpg");
   CImg<unsigned char> img("../public/images/huang2.jpg");
@@ -55,6 +69,10 @@ int main(int argc, char *argv[]) {
   }
   CImg<unsigned char> multiplicity = cimg_mult(cameraman, binary_mask);
   CImgDisplay ventana_2(multiplicity, "Multiplication");
+
+  // Division
+  CImg<unsigned char> division = cimg_division(cameraman, binary_mask);
+  CImgDisplay ventana_3(division, "Division");
 
   while (!ventana.is_closed() && !ventana.is_keyQ()) {}
 
