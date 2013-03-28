@@ -56,6 +56,10 @@ int main(int argc, char *argv[]) {
   CImg<bool> huang2_or = cimg_or(huang2_binary, huang2_binary);
   CImgDisplay ventana_or(huang2_or, "Huang2 OR");
 
+
+  // with intensities images
+  // TODO do it
+
   while (!ventana.is_closed() && !ventana.is_keyQ()) {}
 
   return 0;
