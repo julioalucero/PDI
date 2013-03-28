@@ -62,10 +62,6 @@ int main(int argc, char *argv[]) {
 
   CImgDisplay ventana(emboss_huang2, "Emboss Chairs");
 
-  CImg<unsigned char> algo = cimg_displacement_x(huang2, 5);
-
-  CImgDisplay ve(algo, "displa");
-
   while (!ventana.is_closed() && !ventana.is_keyQ()) {}
 
   return 0;
