@@ -6,12 +6,11 @@ using namespace cimg_library;
 using namespace std;
 
 // s = c * log(1+r)
-CImg<unsigned char> cimg_log(CImg<unsigned char> r, float c){
-  CImg<unsigned char> r_normalize = r.get_normalize(0,1);
-  CImg<unsigned char> s(r.width(), r.height(), r.depth(), r.spectrum());
+CImg<float> cimg_log(CImg<float> r, float c){
+  CImg<float> s(r.width(), r.height(), r.depth(), r.spectrum());
 
-  cimg_forXYC(r_normalize, x, y, v){
-    s(x, y) = c * log( 1 + r_normalize(x,y)); 
+  cimg_forXYC(r, x, y, v){
+    s(x, y, 0, v) = c * log( 1 + r(x, y, 0, v)); 
     if ( s(x, y, 0, v) > 1 )
        s(x, y, 0, v) = 1; 
     else if ( s(x, y, 0, v) < 0 )
