@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <vector>
+#include <cmath>
 
 using namespace cimg_library;
 using namespace std;
@@ -40,13 +41,16 @@ int main(int argc, char *argv[]) {
   };
 
   float mean = 0;
+ // float tolerance = 0;
   for(int i=0; i<10; i++){
     CImg<unsigned char> aux = blister_completo;
     aux.crop(positions[i][0],positions[i][1],positions[i][2],positions[i][3]);
     mean += aux.mean();
+    //tolerance += sqrt(aux.variance());
   }
   mean /= 10; 
-  
+  // tolerance /= 10;
+
   float tolerance = 20;
   vector<int> pos_sin_pastillas;
   for(int i=0; i<10; i++){
