@@ -16,6 +16,23 @@ CImg<unsigned char> cimg_mult(CImg<unsigned char> img, CImg<bool> binary_mask){
   return result;
 } 
 
+// Mean of List of Images
+CImg<float> cimg_mean(CImgList<float> list){
+  CImg<float> img(list.at(0).width(), list.at(0).height(), list.at(0).depth(), list.at(0).spectrum() );
+
+  CImg<float> result(img.width(), img.height(), img.depth(), img.spectrum(), 255);
+
+  cimg_forXY(result, x, y){
+    float pixel_x_y = 0;
+    for(int i=0; i < list.size(); i++){
+      pixel_x_y += list.atNXY(i,x,y);
+    }
+    result(x,y) = pixel_x_y / list.size();
+  }
+
+  return result;
+} 
+
 int main(int argc, char *argv[]) {
 
   CImg<unsigned char> a7v600_X("../public/images/a7v600-X.gif");
