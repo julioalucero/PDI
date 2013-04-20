@@ -37,10 +37,8 @@ CImg<double> get_image_from_pallete(CImg<double> img, const char * filename = ".
 
 int main(int argc, char *argv[]) {
 
-  //Exercise 4.2.a
+  // Exercise 4.2.a
   CImg<double> grays = grays_image(256, 256);
-  CImg<double> img("../public/images/cameraman.tif");
-
 
   (grays,
     get_image_from_pallete(grays, "../public/paletas/bone.pal"),
