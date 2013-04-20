@@ -41,15 +41,21 @@ int main(int argc, char *argv[]) {
   CImgDisplay vent_7(s_pattern, "S Patron");
   CImgDisplay vent_8(i_pattern, "I Patron");
 
-  //Exercise 4.1.b
-  cimg_forXY(img_hsi, x, y){
-    double hue = 180 + img_hsi(x, y, 0, 0);
-    img_hsi(x, y, 0, 0) = (hue > 360) ? hue - 360 : hue;
+  //Exercise 4.1.2
+  CImg<double> pattern("../public/images/pattern.tif");
+  pattern.resize(256, 256);
+  pattern.display();
+  pattern.RGBtoHSI();
+
+  cimg_forXY(pattern, x, y){
+    double hue = 180 + pattern(x, y, 0, 0);
+    pattern(x, y, 0, 0) = (hue > 360) ? hue - 360 : hue;
+    pattern(x, y, 0, 2) = 1 - pattern(x, y, 0, 2);
   }
  
-  img_hsi.get_channel(0).display("Channel h of hsi");
-  img_hsi.HSItoRGB();
-  img_hsi.display("Nueva HSI");
+  pattern.get_channel(0).display("Channel h of hsi");
+  pattern.HSItoRGB();
+  CImgDisplay vent_9(pattern, "Nueva HSI");
   
   while(!vent_1.is_closed()){}; 
   return 0;
