@@ -5,6 +5,6 @@ PDI
 
 Digital Images Process exercises 
 
-== To compile
+== To compile and run
 
-g++ -o tp_1_ej_1 tp_1_ej_1.cpp -O0 -lm -lpthread -lX11
+g++ -o tp_6_ej_1 tp_6_ej_1.cpp -lm -lpthread -lX11 && ./tp_6_ej_1
