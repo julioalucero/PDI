@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <vector>
+#include "../cimg-contrib/MatrixUtility.cpp"
 
 using namespace cimg_library;
 using namespace std;
@@ -42,22 +43,8 @@ CImg<double> geometric_filter(CImg<double> image){
     result(x,y) = pow(pixels_product, 1.0/ pixels.size());
     cout << result(x, y) << endl;
   }
-  
 
   return result;
-}
-
-void show_matrix(CImg<double> image){
-  cout << endl;
-
-  for(int i=0; i< image.width(); i++){
-    cout << endl;
-    for(int j=0; j< image.height(); j++){
-      cout << image[i, j] << " ";
-    }
-  }
-  cout << endl;
-
 }
 
 int main(int argc, char *argv[]) {
